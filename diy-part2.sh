@@ -11,4 +11,14 @@
 #
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+rm -rf feeds/luci/applications/luci-app-argon-config
+rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/luci-app-vssr
+rm -rf feeds/luci/applications/luci-app-ssr-plus
+rm -rf feeds/luci/applications/luci-app-passwall
+rm -rf feeds/luci/themes/luci-theme-argon
+sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
+git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone https://github.com/messense/aliyundrive-webdav package/aliyundrive-webdav
+git clone -b luci https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
